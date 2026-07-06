@@ -1,4 +1,4 @@
-# Wingfoil Instructor Static Clone
+# Wingfoil Instructor
 
 Authorized static reproduction of `wingfoilinstructor.com` for GitHub Pages.
 
