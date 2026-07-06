@@ -22,6 +22,36 @@ PAGES = {
     "/KONTAKT/Impressum/": "kontakt/Impressum/index.html",
 }
 
+OLD_CONTACT_BLOCK = (
+    '<p style="text-align: center;">Wingfoil Instructor</p>'
+    '<p style="text-align: center;">Stefan Bernt</p>'
+    '<p style="text-align: center;">Görbelmoosweg 14<br></p>'
+    '<p style="text-align: center;">01590- 1010101| info@wingfoil-instructor.com<br></p>'
+)
+
+NEW_CONTACT_BLOCK = (
+    '<p style="text-align: center;">Contacts: David Leidenfrost</p>'
+    '<p style="text-align: center;">Adress: Helgolander Str. 94<br>'
+    '28217 Bremen<br>Germany</p>'
+    '<p style="text-align: center;">Phone: +49 1578 7165058<br>'
+    'Email: <a href="mailto:David.Leidenfrost@gmail.com" class="cm_anchor">'
+    'David.Leidenfrost@gmail.com</a><br></p>'
+)
+
+OLD_IMPRESSUM_BLOCK = (
+    "Impressum<br>Angaben gemäß § 5 TMG<br>Wingfoil Instructor.de<br>"
+    "Bernt Stefan<br>Görbelmoosweg 14<br>82205 Gilching<br>Kontakt<br>"
+    "Telefon: 0049 159 01010101<br>E-Mail: info@wingfoil-instructor.de"
+)
+
+NEW_IMPRESSUM_BLOCK = (
+    "Impressum<br>Angaben gemäß § 5 TMG<br>Wingfoil Instructor.de<br>"
+    "David Leidenfrost<br>Helgolander Str. 94<br>28217 Bremen<br>"
+    'Germany<br>Kontakt<br>Telefon: +49 1578 7165058<br>'
+    'E-Mail: <a href="mailto:David.Leidenfrost@gmail.com" class="cm_anchor">'
+    "David.Leidenfrost@gmail.com</a>"
+)
+
 
 def fetch(path: str) -> str:
     req = urllib.request.Request(
@@ -56,6 +86,10 @@ def rewrite_html(html: str, current_output: str) -> str:
     html = html.replace("href='/index.php", f"href='{ORIGIN}/index.php")
     html = html.replace('href="/start/index.php', f'href="{ORIGIN}/start/index.php')
     html = html.replace("href='/start/index.php", f"href='{ORIGIN}/start/index.php")
+    html = html.replace(OLD_CONTACT_BLOCK, NEW_CONTACT_BLOCK)
+    html = html.replace(OLD_IMPRESSUM_BLOCK, NEW_IMPRESSUM_BLOCK)
+    html = html.replace("mailto:info@wingfoil-instructor.com", "mailto:David.Leidenfrost@gmail.com")
+    html = html.replace("tel:+4915901010101", "tel:+4915787165058")
 
     for source_path in sorted(PAGES, key=len, reverse=True):
         if source_path == "/":
