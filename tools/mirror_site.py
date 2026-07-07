@@ -128,6 +128,7 @@ def rewrite_html(html: str, current_output: str) -> str:
     marker = "</head>"
     injected = (
         '<script>document.documentElement.classList.add("github-pages-static-copy");</script>'
+        '<style id="hide-visible-logo">#logo.cm-logo{background-image:none!important;}</style>'
         "\n"
     )
     if marker in html and "github-pages-static-copy" not in html:
