@@ -104,6 +104,14 @@ def rewrite_html(html: str, current_output: str) -> str:
     )
     html = html.replace('navigationText: "WINGFOILEN"', 'navigationText: ""')
     html = html.replace("&amp;nt=WINGFOILEN", "&amp;nt=")
+    html = html.replace(
+        " Anfang 2023 folgte die Ausbildung zum lizensierten Wingfoil Instructor WWS und die Gründung von Wingfoil-instructor.de.\xa0",
+        " ",
+    )
+    html = html.replace(
+        " Anfang 2023 folgte die Ausbildung zum lizensierten Wingfoil Instructor WWS und die Gründung von Wingfoil-instructor.de.",
+        "",
+    )
 
     for source_path in sorted(PAGES, key=len, reverse=True):
         if source_path == "/":
