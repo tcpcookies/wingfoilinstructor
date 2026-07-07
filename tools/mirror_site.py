@@ -90,6 +90,20 @@ def rewrite_html(html: str, current_output: str) -> str:
     html = html.replace(OLD_IMPRESSUM_BLOCK, NEW_IMPRESSUM_BLOCK)
     html = html.replace("mailto:info@wingfoil-instructor.com", "mailto:David.Leidenfrost@gmail.com")
     html = html.replace("tel:+4915901010101", "tel:+4915787165058")
+    html = html.replace(
+        '<li id="cm_navigation_pid_7121621"><a title="WINGFOILEN" href="/start/" class="cm_anchor">WINGFOILEN</a></li>',
+        "",
+    )
+    html = html.replace(
+        '<li id="cm_navigation_pid_7121621" class="cm_current"><a title="WINGFOILEN" href="/start/" class="cm_anchor">WINGFOILEN</a></li>',
+        "",
+    )
+    html = html.replace(
+        '<li id="cm_navigation_pid_7121621" class="cm_current"><a title="WINGFOILEN" href="/" class="cm_anchor">WINGFOILEN</a></li>',
+        "",
+    )
+    html = html.replace('navigationText: "WINGFOILEN"', 'navigationText: ""')
+    html = html.replace("&amp;nt=WINGFOILEN", "&amp;nt=")
 
     for source_path in sorted(PAGES, key=len, reverse=True):
         if source_path == "/":
