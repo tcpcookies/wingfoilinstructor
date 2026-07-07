@@ -49,6 +49,15 @@ NEW_IMPRESSUM_BLOCK = (
     "David.Leidenfrost@gmail.com</a>"
 )
 
+TITLE_REPLACEMENTS = {
+    "Wingfoil Instructor - Lerne Wingfoilen und Wingsurfen mit individueller Betreuung und Einzeltraining. wingfoil lernen , wingfoil trainer, wingfoilen": "Lerne Wingfoilen und Wingsurfen mit individueller Betreuung und Einzeltraining",
+    "Wingfoil Instructor - Individueller Einzelunterricht im Wingfoilen und Wingsurfen - ABLAUF SCHULUNG": "Individueller Einzelunterricht im Wingfoilen und Wingsurfen - ABLAUF SCHULUNG",
+    "Wingfoil Instructor - Individueller Einzelunterricht im Wingfoilen und Wingsurfen - PARTNER": "Individueller Einzelunterricht im Wingfoilen und Wingsurfen - PARTNER",
+    "Wingfoil Instructor - Individueller Einzelunterricht im Wingfoilen und Wingsurfen - Impressum": "Individueller Einzelunterricht im Wingfoilen und Wingsurfen - Impressum",
+    "Wingfoil Instructor - Individueller Einzelunterricht im Wingfoilen und Wingsurfen - KONTAKT": "Individueller Einzelunterricht im Wingfoilen und Wingsurfen - KONTAKT",
+    "Wingfoil Instructor - Individueller Einzelunterricht im Wingfoilen und Wingsurfen - TRAINER": "Individueller Einzelunterricht im Wingfoilen und Wingsurfen - TRAINER",
+}
+
 
 def fetch(path: str) -> str:
     req = urllib.request.Request(
@@ -74,6 +83,9 @@ def rel_link(current_output: str, target_path: str) -> str:
 
 def rewrite_html(html: str, current_output: str) -> str:
     # Keep vendor/runtime resources on the authorized source host.
+    for old_title, new_title in TITLE_REPLACEMENTS.items():
+        html = html.replace(f"<title>{old_title}</title>", f"<title>{new_title}</title>")
+
     html = html.replace('="/.cm4all', f'="{ORIGIN}/.cm4all')
     html = html.replace("='/.cm4all", f"='{ORIGIN}/.cm4all")
     html = html.replace('url("/.cm4all', f'url("{ORIGIN}/.cm4all')
