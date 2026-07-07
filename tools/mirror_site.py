@@ -31,8 +31,6 @@ OLD_CONTACT_BLOCK = (
 
 NEW_CONTACT_BLOCK = (
     '<p style="text-align: center;">Contacts: David Leidenfrost</p>'
-    '<p style="text-align: center;">Adress: Helgolander Str. 94<br>'
-    '28217 Bremen<br>Germany</p>'
     '<p style="text-align: center;">Phone: +49 1578 7165058<br>'
     'Email: <a href="mailto:David.Leidenfrost@gmail.com" class="cm_anchor">'
     'David.Leidenfrost@gmail.com</a><br></p>'
@@ -46,8 +44,7 @@ OLD_IMPRESSUM_BLOCK = (
 
 NEW_IMPRESSUM_BLOCK = (
     "Impressum<br>Angaben gemäß § 5 TMG<br>Wingfoil Instructor.de<br>"
-    "David Leidenfrost<br>Helgolander Str. 94<br>28217 Bremen<br>"
-    'Germany<br>Kontakt<br>Telefon: +49 1578 7165058<br>'
+    'David Leidenfrost<br>Kontakt<br>Telefon: +49 1578 7165058<br>'
     'E-Mail: <a href="mailto:David.Leidenfrost@gmail.com" class="cm_anchor">'
     "David.Leidenfrost@gmail.com</a>"
 )
